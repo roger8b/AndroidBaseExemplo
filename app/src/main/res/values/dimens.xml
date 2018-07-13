@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_default">20dp</dimen>
+    <dimen name="margin_btw_elements">20dp</dimen>
+    <dimen name="bt_text_default">16sp</dimen>
+    <dimen name="margin_botton_login">150dp</dimen>
+    <dimen name="iv_splash_logo">180dp</dimen>
+</resources>
