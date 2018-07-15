@@ -2,7 +2,10 @@
 <resources>
     <dimen name="margin_default">20dp</dimen>
     <dimen name="margin_btw_elements">20dp</dimen>
+    <dimen name="margin_top_login">50dp</dimen>
+
     <dimen name="bt_text_default">16sp</dimen>
-    <dimen name="margin_botton_login">150dp</dimen>
+    <dimen name="margin_botton_login">100dp</dimen>
     <dimen name="iv_splash_logo">180dp</dimen>
+    <dimen name="iv_login_logo">150dp</dimen>
 </resources>

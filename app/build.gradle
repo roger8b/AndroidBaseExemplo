@@ -58,4 +58,9 @@ dependencies {
     implementation 'com.facebook.stetho:stetho-js-rhino:1.4.2'
     // Utils
     implementation 'com.blankj:utilcode:1.17.0'
+
+    // Glide
+    implementation 'com.github.bumptech.glide:glide:4.7.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.5.0'
+
 }
