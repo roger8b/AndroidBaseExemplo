@@ -20,6 +20,12 @@ public class BaseActivity extends AppCompatActivity {
         overridePendingTransitionEnter();
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransitionExit();
+    }
+
     /**
      * Overrides the pending Activity transition by performing the "Enter" animation.
      */
@@ -33,4 +39,6 @@ public class BaseActivity extends AppCompatActivity {
     protected void overridePendingTransitionExit() {
         overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
     }
+
+
 }

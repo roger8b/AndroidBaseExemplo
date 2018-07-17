@@ -3,6 +3,7 @@ package com.example.rm.androidbaseexemplo.ui.login;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.constraint.ConstraintSet;
@@ -21,6 +22,7 @@ import com.example.rm.androidbaseexemplo.components.CustomEditText;
 import com.example.rm.androidbaseexemplo.components.CustonConstraintLayout;
 import com.example.rm.androidbaseexemplo.databinding.ActivityLoginBinding;
 import com.example.rm.androidbaseexemplo.ui.BaseActivity;
+import com.example.rm.androidbaseexemplo.ui.home.HomeActivity;
 import com.example.rm.androidbaseexemplo.util.GlideApp;
 
 public class LoginActivity extends BaseActivity implements View.OnFocusChangeListener, CustomEditText.Listener, View.OnClickListener, View.OnTouchListener {
@@ -78,9 +80,15 @@ public class LoginActivity extends BaseActivity implements View.OnFocusChangeLis
             hideKeyboard(this);
             view.clearFocus();
             changeLayout(true);
+            showHomeActivity();
         });
 
 
+    }
+
+    private void showHomeActivity() {
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
     }
 
     private void loadImages() {
