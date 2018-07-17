@@ -13,6 +13,8 @@ import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.blankj.utilcode.util.ToastUtils;
+import com.blankj.utilcode.util.Utils;
 import com.example.rm.androidbaseexemplo.R;
 import com.example.rm.androidbaseexemplo.databinding.ActivityHomeBinding;
 import com.example.rm.androidbaseexemplo.ui.home.sidemenu.SideMenuItem;
@@ -25,29 +27,38 @@ public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     ActivityHomeBinding mBinding;
+    DrawerLayout mDrawerLayout;
+    NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mBinding = DataBindingUtil.setContentView(this,R.layout.activity_home);
 
+        Utils.init(getApplicationContext());
+
         loadSideMenu();
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.side_menu_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_side_menu);
-        navigationView.setNavigationItemSelectedListener(this);
     }
 
     private void loadSideMenu() {
+
+        mDrawerLayout = mBinding.sideMenuLayout;
+        navigationView = mBinding.navSideMenu;
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, mDrawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        mDrawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+
+        navigationView.setNavigationItemSelectedListener(this);
+
+        mBinding.navSideMenu.bringToFront();
+        mBinding.sideMenuLayout.requestLayout();
+
         SideMenuListItens sideMenuListItens = new SideMenuListItens();
         mBinding.rvSideMenu.setLayoutManager(new LinearLayoutManager(this));
         SideMenuAdapter  sideMenuAdapter = new SideMenuAdapter();
@@ -61,6 +72,8 @@ public class HomeActivity extends AppCompatActivity
 
                     @Override
                     public void onNext(Pair<SideMenuItem, Integer> sideMenuItemIntegerPair) {
+                        SideMenuItem sideMenuItem = sideMenuItemIntegerPair.first;
+                        sideMenuCliked(sideMenuItem.getId());
 
                     }
 
@@ -80,11 +93,14 @@ public class HomeActivity extends AppCompatActivity
 
     }
 
+    private void sideMenuCliked(int id) {
+        ToastUtils.showShort("Item selecionado %d", id);
+    }
+
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.side_menu_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
+        if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+            mDrawerLayout.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
         }
@@ -110,8 +126,7 @@ public class HomeActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.side_menu_layout);
-        drawer.closeDrawer(GravityCompat.START);
+        mDrawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
 }

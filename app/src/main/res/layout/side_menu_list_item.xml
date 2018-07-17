@@ -1,46 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+
         <variable
             name="sideMenuItem"
-            type="com.example.rm.androidbaseexemplo.ui.home.sidemenu.SideMenuItem"/>
-        <import type="android.view.View"/>
+            type="com.example.rm.androidbaseexemplo.ui.home.sidemenu.SideMenuItem" />
+
+        <import type="android.view.View" />
     </data>
 
 
-<android.support.constraint.ConstraintLayout
+    <android.support.constraint.ConstraintLayout
 
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-    <ImageView
-        android:id="@+id/iv_icon"
-        android:layout_width="19dp"
-        android:layout_height="19dp"
-        tools:src="@drawable/ic_robot_1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_margin="20dp"/>
-
-    <TextView
-        android:id="@+id/tv_label"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toRightOf="@+id/iv_icon"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginLeft="25dp"
-        android:layout_marginStart="25dp"
-        tools:text="Perfil"
-        android:layout_marginRight="@dimen/margin_default"
-        android:layout_marginEnd="@dimen/margin_default"
-        android:text="@{sideMenuItem.getItemTitle()}"
-        />
+        android:background="@drawable/side_menu_item_custon_bg"
+        android:padding="@dimen/side_menu_item_padding">
 
-</android.support.constraint.ConstraintLayout>
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_robot_1" />
+
+        <TextView
+            android:id="@+id/tv_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginEnd="@dimen/margin_default"
+            android:layout_marginRight="@dimen/margin_default"
+            android:text="@{sideMenuItem.getItemTitle()}"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/iv_icon"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Perfil" />
+
+    </android.support.constraint.ConstraintLayout>
 </layout>
