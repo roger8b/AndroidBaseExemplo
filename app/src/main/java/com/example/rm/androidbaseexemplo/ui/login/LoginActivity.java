@@ -25,7 +25,7 @@ import com.example.rm.androidbaseexemplo.ui.BaseActivity;
 import com.example.rm.androidbaseexemplo.ui.home.HomeActivity;
 import com.example.rm.androidbaseexemplo.util.GlideApp;
 
-public class LoginActivity extends BaseActivity implements View.OnFocusChangeListener, CustomEditText.Listener, View.OnClickListener, View.OnTouchListener {
+public class LoginActivity extends AppCompatActivity implements View.OnFocusChangeListener, CustomEditText.Listener, View.OnClickListener, View.OnTouchListener {
 
     ActivityLoginBinding mBinding;
     ConstraintSet constraintSet1;
@@ -93,9 +93,9 @@ public class LoginActivity extends BaseActivity implements View.OnFocusChangeLis
 
     private void loadImages() {
         GlideApp.with(this)
-                .load(R.drawable.ic_luffy_logo)
+                .load(R.drawable.ic_brook_logo)
                 .fitCenter()
-                .into(mBinding.ivLoginLogo);
+                .into(mBinding.ivLogo);
 
     }
 

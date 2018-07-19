@@ -23,7 +23,7 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 
-public class SpashActivity extends BaseActivity {
+public class SpashActivity extends AppCompatActivity {
 
     ActivitySpashBinding mBinding;
 
@@ -69,14 +69,21 @@ public class SpashActivity extends BaseActivity {
     private void loadImages() {
         GlideApp.with(this)
                 .load(R.drawable.ic_brook_logo)
-                .into(mBinding.ivSplashLogo);
+                .into(mBinding.ivLogo);
     }
 
     private void homeActivity() {
         Intent intent = new Intent(this,LoginActivity.class);
-        startActivity(intent);
+        Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(
+                this,
+                mBinding.ivLogo,
+                mBinding.ivLogo.getTransitionName()).toBundle();
+        startActivity(intent, bundle);
         finish();
 
     }
+
+
+
 
 }

@@ -19,4 +19,5 @@
     <string name="menu_item_5">Menu Item 5</string>
     <string name="menu_item_6">Menu Item 6</string>
     <string name="menu_item_7">Menu Item 7</string>
+    <string name="transition_splash_to_login">transition_1</string>
 </resources>
