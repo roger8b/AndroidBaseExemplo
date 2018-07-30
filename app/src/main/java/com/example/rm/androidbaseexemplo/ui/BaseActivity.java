@@ -1,12 +1,11 @@
 package com.example.rm.androidbaseexemplo.ui;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.rm.androidbaseexemplo.R;
 
-public class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     public void finish() {

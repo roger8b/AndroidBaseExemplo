@@ -1,4 +1,4 @@
-package com.example.rm.androidbaseexemplo.util;
+package com.example.rm.androidbaseexemplo.components;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 import okhttp3.OkHttpClient;
 
 @com.bumptech.glide.annotation.GlideModule
-public final class aplicationGlideModule extends AppGlideModule {
+public final class AplicationGlideModule extends AppGlideModule {
 
     @Override
     public void applyOptions(@NonNull Context context, @NonNull GlideBuilder builder) {

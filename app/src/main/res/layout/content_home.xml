@@ -1,30 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
+<layout xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-<android.support.constraint.ConstraintLayout
-
+<android.support.design.widget.CoordinatorLayout
+    android:id="@+id/coordinator_layout"
+    android:background="@android:color/white"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".ui.home.HomeActivity"
-    tools:showIn="@layout/app_bar_home">
+    android:layout_height="match_parent">
 
-    <android.support.design.widget.AppBarLayout
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_mock_data"
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_height="match_parent"/>
+
+    <include
+        android:id="@+id/in_toolbar"
+        layout="@layout/content_toolbar"
+         />
+
+    <com.example.rm.androidbaseexemplo.ui.home.bottonmenu.BottonMenu
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        app:layout_anchor="@id/rv_mock_data"
+        app:layout_anchorGravity="bottom">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+        <include
+            android:id="@+id/in_botton_bar"
+            layout="@layout/nav_botton_bar"/>
 
-    </android.support.design.widget.AppBarLayout>
-</android.support.constraint.ConstraintLayout>
+    </com.example.rm.androidbaseexemplo.ui.home.bottonmenu.BottonMenu>
+
+
+</android.support.design.widget.CoordinatorLayout>
 </layout>

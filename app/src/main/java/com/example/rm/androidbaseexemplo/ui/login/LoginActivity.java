@@ -20,10 +20,10 @@ import android.view.inputmethod.InputMethodManager;
 import com.example.rm.androidbaseexemplo.R;
 import com.example.rm.androidbaseexemplo.components.CustomEditText;
 import com.example.rm.androidbaseexemplo.components.CustonConstraintLayout;
+import com.example.rm.androidbaseexemplo.components.GlideApp;
 import com.example.rm.androidbaseexemplo.databinding.ActivityLoginBinding;
 import com.example.rm.androidbaseexemplo.ui.BaseActivity;
 import com.example.rm.androidbaseexemplo.ui.home.HomeActivity;
-import com.example.rm.androidbaseexemplo.util.GlideApp;
 
 public class LoginActivity extends BaseActivity implements View.OnFocusChangeListener, CustomEditText.Listener, View.OnClickListener, View.OnTouchListener {
 

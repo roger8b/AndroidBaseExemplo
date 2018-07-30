@@ -9,10 +9,10 @@ import android.transition.Explode;
 import android.view.Window;
 
 import com.example.rm.androidbaseexemplo.R;
+import com.example.rm.androidbaseexemplo.components.GlideApp;
 import com.example.rm.androidbaseexemplo.databinding.ActivitySpashBinding;
 import com.example.rm.androidbaseexemplo.ui.BaseActivity;
 import com.example.rm.androidbaseexemplo.ui.login.LoginActivity;
-import com.example.rm.androidbaseexemplo.util.GlideApp;
 
 import java.util.concurrent.TimeUnit;
 

@@ -11,6 +11,10 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
+    <string name="loremipsunlist">%d - Lorem ipsum dolor sit amet, \n consectetur adipiscing elit.</string>
+
+
+
     <!--Side Menu-->
     <string name="menu_item_1">Menu Item 1</string>
     <string name="menu_item_2">Menu Item 2</string>
@@ -19,4 +23,8 @@
     <string name="menu_item_5">Menu Item 5</string>
     <string name="menu_item_6">Menu Item 6</string>
     <string name="menu_item_7">Menu Item 7</string>
+    <string name="bt_home">Home</string>
+    <string name="bt_devices">Dispositivos</string>
+    <string name="bt_config">Configuração</string>
+    <string name="bt_about">Sobre</string>
 </resources>

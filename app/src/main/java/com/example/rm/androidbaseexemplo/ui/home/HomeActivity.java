@@ -7,24 +7,24 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.blankj.utilcode.util.ToastUtils;
 import com.blankj.utilcode.util.Utils;
 import com.example.rm.androidbaseexemplo.R;
 import com.example.rm.androidbaseexemplo.databinding.ActivityHomeBinding;
+import com.example.rm.androidbaseexemplo.ui.BaseActivity;
+import com.example.rm.androidbaseexemplo.ui.home.loremipsumlist.MockItemList;
 import com.example.rm.androidbaseexemplo.ui.home.sidemenu.SideMenuItem;
 import com.example.rm.androidbaseexemplo.ui.home.sidemenu.SideMenuListItens;
 
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
-public class HomeActivity extends AppCompatActivity
+public class HomeActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     ActivityHomeBinding mBinding;
@@ -39,6 +39,18 @@ public class HomeActivity extends AppCompatActivity
         Utils.init(getApplicationContext());
 
         loadSideMenu();
+
+        loadMockRecyclerView();
+
+    }
+
+    private void loadMockRecyclerView() {
+
+        MockItemList mockItemList = new MockItemList(getApplicationContext());
+        mBinding.inContentHome.rvMockData.setLayoutManager(new LinearLayoutManager(this));
+        MockListAdapter mockListAdapter = new MockListAdapter();
+        mockListAdapter.setData(mockItemList.getMockListItems());
+        mBinding.inContentHome.rvMockData.setAdapter(mockListAdapter);
 
     }
 

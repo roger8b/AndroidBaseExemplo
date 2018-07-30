@@ -16,4 +16,14 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="side_menu_padding_left">20dp</dimen>
     <dimen name="side_menu_item_padding">10dp</dimen>
+
+    <dimen name="grid_x1">4dp</dimen>
+    <dimen name="grid_x2">8dp</dimen>
+    <dimen name="grid_x3">16dp</dimen>
+    <dimen name="grid_x4">32dp</dimen>
+    <dimen name="grid_x5">64dp</dimen>
+    <dimen name="grid_x6">128dp</dimen>
+    <dimen name="bt_botton_bar_dim">85dp</dimen>
+
+
 </resources>

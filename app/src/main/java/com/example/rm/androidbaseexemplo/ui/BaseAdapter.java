@@ -1,4 +1,4 @@
-package com.example.rm.androidbaseexemplo.components.adapter;
+package com.example.rm.androidbaseexemplo.ui;
 
 import android.support.v7.widget.RecyclerView;
 import android.util.Pair;

@@ -8,10 +8,10 @@ import android.view.ViewGroup;
 
 import com.example.rm.androidbaseexemplo.BR;
 import com.example.rm.androidbaseexemplo.R;
-import com.example.rm.androidbaseexemplo.components.adapter.BaseAdapter;
+import com.example.rm.androidbaseexemplo.components.GlideApp;
+import com.example.rm.androidbaseexemplo.ui.BaseAdapter;
 import com.example.rm.androidbaseexemplo.databinding.SideMenuListItemBinding;
 import com.example.rm.androidbaseexemplo.ui.home.sidemenu.SideMenuItem;
-import com.example.rm.androidbaseexemplo.util.GlideApp;
 
 import java.util.List;
 
@@ -51,7 +51,8 @@ class SideMenuAdapter extends BaseAdapter<SideMenuItem> {
             mBinding = DataBindingUtil.bind(itemView);
         }
 
-        public SideMenuListItemBinding getBinding() {
+        public SideMenuListItemBinding getBinding()
+        {
             return mBinding;
         }
     }

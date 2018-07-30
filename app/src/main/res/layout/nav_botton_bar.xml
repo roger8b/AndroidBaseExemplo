@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+<android.support.constraint.ConstraintLayout
+    android:background="@android:color/white"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/grid_x1"
+    android:paddingBottom="@dimen/grid_x1">
+
+    <LinearLayout
+        android:id="@+id/bt_home"
+        android:layout_width="@dimen/bt_botton_bar_dim"
+        android:layout_height="@dimen/bt_botton_bar_dim"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bt_devices"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/side_menu_item_custon_bg"
+        android:stateListAnimator="@animator/line_raise"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@string/bt_home"
+            android:src="@drawable/ic_robot_1" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/grid_x1"
+            android:text="@string/bt_home"
+            android:textAlignment="center" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bt_devices"
+        android:layout_width="@dimen/bt_botton_bar_dim"
+        android:layout_height="@dimen/bt_botton_bar_dim"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bt_config"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/bt_home"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteY="4dp"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@string/bt_devices"
+            android:src="@drawable/ic_robot_6" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/grid_x1"
+            android:text="@string/bt_devices"
+            android:textAlignment="center" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bt_config"
+        android:layout_width="@dimen/bt_botton_bar_dim"
+        android:layout_height="@dimen/bt_botton_bar_dim"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bt_about"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/bt_devices"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteY="4dp"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@string/bt_config"
+            android:src="@drawable/ic_robot_7" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/grid_x1"
+            android:text="@string/bt_config"
+            android:textAlignment="center" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bt_about"
+        android:layout_width="@dimen/bt_botton_bar_dim"
+        android:layout_height="@dimen/bt_botton_bar_dim"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/bt_config"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteY="4dp"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@string/bt_about"
+            android:src="@drawable/ic_robot_5" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/grid_x1"
+            android:text="@string/bt_about"
+            android:textAlignment="center" />
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>
+</layout>
