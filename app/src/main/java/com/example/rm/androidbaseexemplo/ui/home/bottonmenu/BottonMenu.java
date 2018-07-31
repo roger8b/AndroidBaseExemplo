@@ -5,23 +5,31 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.CoordinatorLayout;
 import android.util.AttributeSet;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
-public class BottonMenu extends ConstraintLayout implements CoordinatorLayout.AttachedBehavior {
+public class BottonMenu extends FrameLayout implements CoordinatorLayout.AttachedBehavior {
 
 
-    public BottonMenu(Context context) {
+    public BottonMenu(@NonNull Context context) {
         super(context);
     }
 
-    public BottonMenu(Context context, AttributeSet attrs) {
+    public BottonMenu(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public BottonMenu(Context context, AttributeSet attrs, int defStyleAttr) {
+    public BottonMenu(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+    }
+
+    public BottonMenu(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        super(context, attrs, defStyleAttr, defStyleRes);
     }
 
     @NonNull

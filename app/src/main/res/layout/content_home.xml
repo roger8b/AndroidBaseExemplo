@@ -1,39 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
 
-<android.support.design.widget.CoordinatorLayout
-    android:id="@+id/coordinator_layout"
-    android:background="@android:color/white"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_mock_data"
-        android:background="@android:color/white"
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/coordinator_layout"
         android:layout_width="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:layout_height="match_parent"/>
-
-    <include
-        android:id="@+id/in_toolbar"
-        layout="@layout/content_toolbar"
-         />
-
-    <com.example.rm.androidbaseexemplo.ui.home.bottonmenu.BottonMenu
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_anchor="@id/rv_mock_data"
-        app:layout_anchorGravity="bottom">
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
 
         <include
-            android:id="@+id/in_botton_bar"
-            layout="@layout/nav_botton_bar"/>
-
-    </com.example.rm.androidbaseexemplo.ui.home.bottonmenu.BottonMenu>
+            android:id="@+id/in_toolbar"
+            layout="@layout/content_toolbar" />
 
 
-</android.support.design.widget.CoordinatorLayout>
+        <FrameLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+
+        <com.example.rm.androidbaseexemplo.ui.home.bottonmenu.BottonMenu
+            android:id="@+id/menu_botton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:elevation="40dp"
+            android:layout_gravity="bottom">
+
+            <include
+                android:id="@+id/in_botton_bar"
+                layout="@layout/nav_botton_bar" />
+
+        </com.example.rm.androidbaseexemplo.ui.home.bottonmenu.BottonMenu>
+
+
+    </android.support.design.widget.CoordinatorLayout>
 </layout>

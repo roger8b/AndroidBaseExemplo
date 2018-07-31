@@ -4,6 +4,8 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -40,17 +42,37 @@ public class HomeActivity extends BaseActivity
 
         loadSideMenu();
 
-        loadMockRecyclerView();
+        //loadMockRecyclerView();
+
+        loadBottonMenu();
+
+        loadFragment();
+
+    }
+
+    private void loadFragment() {
+        Fragment fragment = HomeFragment.newInstance();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.container,fragment, String.valueOf(R.layout.fragment_home)).commit();
+
+    }
+
+    private void loadBottonMenu() {
+
+
+
+
+
 
     }
 
     private void loadMockRecyclerView() {
 
-        MockItemList mockItemList = new MockItemList(getApplicationContext());
+       /* MockItemList mockItemList = new MockItemList(getApplicationContext());
         mBinding.inContentHome.rvMockData.setLayoutManager(new LinearLayoutManager(this));
         MockListAdapter mockListAdapter = new MockListAdapter();
         mockListAdapter.setData(mockItemList.getMockListItems());
-        mBinding.inContentHome.rvMockData.setAdapter(mockListAdapter);
+        mBinding.inContentHome.rvMockData.setAdapter(mockListAdapter);*/
 
     }
 
