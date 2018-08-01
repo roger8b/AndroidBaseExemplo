@@ -15,6 +15,8 @@ import android.transition.TransitionManager;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
 
 import com.example.rm.androidbaseexemplo.R;
@@ -37,6 +39,8 @@ public class LoginActivity extends BaseActivity implements View.OnFocusChangeLis
         super.onCreate(savedInstanceState);
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_login);
 
+
+
         loadData();
 
         CustonConstraintLayout mView = (CustonConstraintLayout) mBinding.getRoot();
@@ -55,6 +59,31 @@ public class LoginActivity extends BaseActivity implements View.OnFocusChangeLis
         });
 
     }
+
+    private void loadAnimation() {
+        Animation slideUserName = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.slide_up_in);
+        Animation slidePassword = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.slide_up_in);
+        Animation slideBtEnter = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.slide_up_in);
+
+        mBinding.tilUserName.setVisibility(View.VISIBLE);
+        slideUserName.setDuration(500);
+        mBinding.tilUserName.setAnimation(slideUserName);
+        mBinding.tilPassword.setVisibility(View.VISIBLE);
+        slidePassword.setDuration(750);
+        mBinding.tilPassword.setAnimation(slidePassword);
+        mBinding.btEnter.setVisibility(View.VISIBLE);
+        slideBtEnter.setDuration(1000);
+        mBinding.btEnter.setAnimation(slideBtEnter);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        loadAnimation();
+    }
+
+
 
     private void loadData() {
 
