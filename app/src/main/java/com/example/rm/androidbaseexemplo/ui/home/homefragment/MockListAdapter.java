@@ -1,4 +1,4 @@
-package com.example.rm.androidbaseexemplo.ui.home;
+package com.example.rm.androidbaseexemplo.ui.home.homefragment;
 
 import android.databinding.DataBindingUtil;
 import android.support.v7.widget.RecyclerView;
@@ -11,7 +11,6 @@ import com.example.rm.androidbaseexemplo.R;
 import com.example.rm.androidbaseexemplo.databinding.MockListItemBinding;
 import com.example.rm.androidbaseexemplo.ui.BaseAdapter;
 import com.example.rm.androidbaseexemplo.ui.home.loremipsumlist.MockListItem;
-import com.example.rm.androidbaseexemplo.ui.home.sidemenu.SideMenuItem;
 
 import java.util.List;
 

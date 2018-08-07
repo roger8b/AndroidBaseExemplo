@@ -2,6 +2,7 @@ package com.example.rm.androidbaseexemplo.ui.home;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -11,6 +12,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
+import android.transition.Fade;
 import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,7 +21,9 @@ import com.blankj.utilcode.util.Utils;
 import com.example.rm.androidbaseexemplo.R;
 import com.example.rm.androidbaseexemplo.databinding.ActivityHomeBinding;
 import com.example.rm.androidbaseexemplo.ui.BaseActivity;
-import com.example.rm.androidbaseexemplo.ui.home.loremipsumlist.MockItemList;
+import com.example.rm.androidbaseexemplo.ui.home.bottonmenu.BottomNavigationViewHelper;
+import com.example.rm.androidbaseexemplo.ui.home.homefragment.HomeFragment;
+import com.example.rm.androidbaseexemplo.ui.home.sidemenu.SideMenuAdapter;
 import com.example.rm.androidbaseexemplo.ui.home.sidemenu.SideMenuItem;
 import com.example.rm.androidbaseexemplo.ui.home.sidemenu.SideMenuListItens;
 
@@ -29,16 +33,28 @@ import io.reactivex.disposables.Disposable;
 public class HomeActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    ActivityHomeBinding mBinding;
-    DrawerLayout mDrawerLayout;
-    NavigationView navigationView;
+    private static final String HOME_FRAGMENT = "HOME_FRAGMENT";
+    private static final String ROBOT_TWO_FRAGMENT = "ROBOT_TWO_FRAGMENT";
+    private ActivityHomeBinding mBinding;
+    private DrawerLayout mDrawerLayout;
+    private Fragment mCurrentFragment;
+    private FragmentManager mFragmentManager;
+    private Toolbar mToolbar;
+
+    private static final long MOVE_DEFAULT_TIME = 300;
+    private static final long FADE_DEFAULT_TIME = 300;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mBinding = DataBindingUtil.setContentView(this,R.layout.activity_home);
+        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_home);
 
         Utils.init(getApplicationContext());
+
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        mFragmentManager = getSupportFragmentManager();
 
         loadSideMenu();
 
@@ -46,40 +62,71 @@ public class HomeActivity extends BaseActivity
 
         loadBottonMenu();
 
-        loadFragment();
+        loadFragment(HOME_FRAGMENT, HomeFragment.newInstance(), R.string.home, null);
 
-    }
-
-    private void loadFragment() {
-        Fragment fragment = HomeFragment.newInstance();
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.container,fragment, String.valueOf(R.layout.fragment_home)).commit();
 
     }
 
     private void loadBottonMenu() {
 
+        BottomNavigationViewHelper.removeShiftMode(mBinding.inContentHome.bottomNavigation);
+
+        BottomNavigationView bottomNavigationView = mBinding.inContentHome.bottomNavigation;
 
 
 
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.robot_1:
+                    loadFragment(HOME_FRAGMENT, HomeFragment.newInstance(), R.string.home, mCurrentFragment);
+                    break;
 
+                case R.id.robot_2:
+
+                    loadFragment(ROBOT_TWO_FRAGMENT, RobotTwoFragment.newInstance(), R.string.robo_2, mCurrentFragment);
+                    break;
+
+                case R.id.robot_3:
+                    break;
+
+                case R.id.robot_4:
+                    break;
+            }
+            return true;
+        });
 
     }
 
-    private void loadMockRecyclerView() {
+    private void loadFragment(String fragmentTag, Fragment nextFragment, int title, Fragment currentFragment) {
 
-       /* MockItemList mockItemList = new MockItemList(getApplicationContext());
-        mBinding.inContentHome.rvMockData.setLayoutManager(new LinearLayoutManager(this));
-        MockListAdapter mockListAdapter = new MockListAdapter();
-        mockListAdapter.setData(mockItemList.getMockListItems());
-        mBinding.inContentHome.rvMockData.setAdapter(mockListAdapter);*/
+        if (nextFragment != null) {
+            mToolbar.setTitle(title);
+
+            if (currentFragment != null) {
+                Fade exitFade = new Fade();
+                exitFade.setDuration(FADE_DEFAULT_TIME);
+                currentFragment.setExitTransition(exitFade);
+            }
+
+            Fade enterFade = new Fade();
+            enterFade.setStartDelay(MOVE_DEFAULT_TIME + FADE_DEFAULT_TIME);
+            enterFade.setDuration(FADE_DEFAULT_TIME);
+            nextFragment.setEnterTransition(enterFade);
+
+            mFragmentManager.beginTransaction().replace(R.id.container, nextFragment, fragmentTag).commit();
+
+            mCurrentFragment = nextFragment;
+
+
+        }
 
     }
+
 
     private void loadSideMenu() {
 
         mDrawerLayout = mBinding.sideMenuLayout;
-        navigationView = mBinding.navSideMenu;
+        NavigationView navigationView = mBinding.navSideMenu;
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -96,7 +143,7 @@ public class HomeActivity extends BaseActivity
 
         SideMenuListItens sideMenuListItens = new SideMenuListItens();
         mBinding.rvSideMenu.setLayoutManager(new LinearLayoutManager(this));
-        SideMenuAdapter  sideMenuAdapter = new SideMenuAdapter();
+        SideMenuAdapter sideMenuAdapter = new SideMenuAdapter();
         sideMenuAdapter.setData(sideMenuListItens.getSideMenuList());
         sideMenuAdapter.observableItemPairClick()
                 .subscribe(new Observer<Pair<SideMenuItem, Integer>>() {
@@ -130,7 +177,7 @@ public class HomeActivity extends BaseActivity
 
     private void sideMenuCliked(int id) {
         String message = "Item selecionado: " + id;
-        Snackbar.make(mDrawerLayout,message,Snackbar.LENGTH_SHORT).show();
+        Snackbar.make(mDrawerLayout, message, Snackbar.LENGTH_SHORT).show();
     }
 
     @Override

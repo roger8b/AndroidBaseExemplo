@@ -21,20 +21,30 @@
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-
         <com.example.rm.androidbaseexemplo.ui.home.bottonmenu.BottonMenu
-            android:id="@+id/menu_botton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clipToPadding="false"
-            android:elevation="40dp"
-            android:layout_gravity="bottom">
+            android:layout_gravity="bottom"
+            android:layout_height="wrap_content">
 
-            <include
-                android:id="@+id/in_botton_bar"
-                layout="@layout/nav_botton_bar" />
+            <android.support.design.widget.BottomNavigationView
+                android:id="@+id/bottom_navigation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                app:itemBackground="@color/colorPrimary"
+                app:itemIconTint="@android:color/white"
+                app:itemTextColor="@android:color/white"
+                app:menu="@menu/botton_navigation_main"
+                >
+
+            </android.support.design.widget.BottomNavigationView>
 
         </com.example.rm.androidbaseexemplo.ui.home.bottonmenu.BottonMenu>
+
+
+
+
+
 
 
     </android.support.design.widget.CoordinatorLayout>

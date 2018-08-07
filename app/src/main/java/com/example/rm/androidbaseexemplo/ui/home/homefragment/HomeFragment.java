@@ -1,4 +1,4 @@
-package com.example.rm.androidbaseexemplo.ui.home;
+package com.example.rm.androidbaseexemplo.ui.home.homefragment;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;

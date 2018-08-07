@@ -27,4 +27,11 @@
     <string name="bt_devices">Dispositivos</string>
     <string name="bt_config">Configuração</string>
     <string name="bt_about">Sobre</string>
+
+    <!--Robots-->
+    <string name="robo_1">Robo 1</string>
+    <string name="robo_2">Robo 2</string>
+    <string name="robo_3">Robo 3</string>
+    <string name="robo_4">Robo 4</string>
+    <string name="home">Home</string>
 </resources>

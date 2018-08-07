@@ -13,6 +13,10 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
+/**
+ * Responsavel por esonder a bottonNavigation
+ */
+
 public class BottonMenu extends FrameLayout implements CoordinatorLayout.AttachedBehavior {
 
 

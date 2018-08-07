@@ -1,4 +1,4 @@
-package com.example.rm.androidbaseexemplo.ui.home;
+package com.example.rm.androidbaseexemplo.ui.home.sidemenu;
 
 import android.databinding.DataBindingUtil;
 import android.support.v7.widget.RecyclerView;
@@ -15,7 +15,7 @@ import com.example.rm.androidbaseexemplo.ui.home.sidemenu.SideMenuItem;
 
 import java.util.List;
 
-class SideMenuAdapter extends BaseAdapter<SideMenuItem> {
+public class SideMenuAdapter extends BaseAdapter<SideMenuItem> {
 
     public void setData(List<SideMenuItem> list){
         this.enableItemPairClick();
